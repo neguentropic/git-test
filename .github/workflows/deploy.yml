@@ -14,7 +14,10 @@ jobs:
           host: ${{ secrets.VPS_HOST }}
           username: ${{ secrets.VPS_USER }}
           key: ${{ secrets.VPS_SSH_KEY }}
-          script: |
+          script_stop: true
+          script:  |
             cd /opt/data/test-git
-            git pull
+            git fetch origin main
+            git reset --hard origin/main
             docker compose up -d --build
+            docker image prune -f

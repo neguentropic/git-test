@@ -3,11 +3,8 @@ services:
     build: .
     container_name: git-test
     restart: unless-stopped
-    networks:
-      - traefik
     labels:
       - "traefik.enable=true"
-      - "traefik.docker.network=traefik"
       - "traefik.http.routers.git-test.rule=Host(`srv1837748.hstgr.cloud`)"
       - "traefik.http.routers.git-test.entrypoints=websecure"
       - "traefik.http.routers.git-test.tls=true"
