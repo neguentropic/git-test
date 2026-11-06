@@ -1,6 +1,8 @@
 import '@fontsource/orbitron/700.css'
+import '@fontsource/orbitron/800.css'
 import '@fontsource/orbitron/900.css'
 import '@fontsource-variable/inter'
+import 'lenis/dist/lenis.css'
 import './styles/index.css'
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'

@@ -1,36 +1,44 @@
 import { motion } from 'motion/react'
 import { Link } from 'react-router-dom'
+import { useIntroStatus } from '@/hooks/useIntroStatus'
 
 export default function HomePage() {
-  return (
-    <section className="flex min-h-[80vh] flex-col items-center justify-center px-8 py-24 text-center">
-      {/* Visually hidden h1 for SEO — visible text rendered via animation placeholder */}
-      <h1 className="sr-only">Neguentropia</h1>
+  const status = useIntroStatus()
+  const isFallback = status === 'fallback'
+  const revealed = status === 'done' || isFallback
 
-      <motion.p
-        initial={{ opacity: 0, y: 24 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: 'easeOut' }}
-        className="mb-4 font-display text-[clamp(2.5rem,8vw,7rem)] font-black uppercase tracking-[0.15em] text-accent"
-        aria-hidden="true"
+  return (
+    <section className="relative flex min-h-[calc(100svh-5rem)] flex-col items-center justify-end px-8 pb-[10vh] text-center">
+      {/* Le mot visible est dessiné par les particules ; ce h1 ne s'affiche que sans WebGL. */}
+      <motion.h1
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1.2, ease: 'easeInOut' }}
+        className={
+          isFallback
+            ? 'absolute inset-0 grid place-items-center font-display text-[clamp(1.75rem,7vw,6rem)] font-black uppercase tracking-[0.15em] text-text'
+            : 'sr-only'
+        }
       >
         Neguentropia
-      </motion.p>
+      </motion.h1>
 
       <motion.p
         initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.6, duration: 1 }}
-        className="mb-12 max-w-xl text-text-muted"
+        animate={{ opacity: revealed ? 1 : 0 }}
+        transition={{ duration: 1, ease: 'easeInOut' }}
+        className="relative mb-8 max-w-xl text-text-muted"
       >
         L&apos;ordre émerge du chaos. Découvrez un univers rétro-futuriste où chaque particule
         raconte une histoire.
       </motion.p>
 
       <motion.div
-        initial={{ opacity: 0, y: 12 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 1, duration: 0.6 }}
+        inert={!revealed}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: revealed ? 1 : 0 }}
+        transition={{ delay: revealed ? 0.4 : 0, duration: 0.8, ease: 'easeInOut' }}
+        className="relative"
       >
         <Link
           to="/contact"
