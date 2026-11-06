@@ -11,7 +11,7 @@ export default function HomePage() {
         initial={{ opacity: 0, y: 24 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: 'easeOut' }}
-        className="mb-4 font-['Orbitron'] text-[clamp(2.5rem,8vw,7rem)] font-black uppercase tracking-[0.15em] text-[--color-accent]"
+        className="mb-4 font-display text-[clamp(2.5rem,8vw,7rem)] font-black uppercase tracking-[0.15em] text-accent"
         aria-hidden="true"
       >
         Neguentropia
@@ -21,7 +21,7 @@ export default function HomePage() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.6, duration: 1 }}
-        className="mb-12 max-w-xl text-[--color-text-muted]"
+        className="mb-12 max-w-xl text-text-muted"
       >
         L&apos;ordre émerge du chaos. Découvrez un univers rétro-futuriste où chaque particule
         raconte une histoire.
@@ -34,7 +34,7 @@ export default function HomePage() {
       >
         <Link
           to="/contact"
-          className="rounded border border-[--color-accent]/40 px-8 py-3 font-['Orbitron'] text-sm uppercase tracking-widest text-[--color-accent] transition-all duration-300 hover:bg-[--color-accent]/10"
+          className="rounded border border-accent/40 px-8 py-3 font-display text-sm uppercase tracking-widest text-accent transition-all duration-300 hover:bg-accent/10"
         >
           Nous contacter
         </Link>

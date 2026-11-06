@@ -10,7 +10,7 @@ export default function Header() {
     <header className="relative z-20 flex items-center justify-between px-8 py-6">
       <NavLink
         to="/"
-        className="font-['Orbitron'] text-lg font-black uppercase tracking-widest text-[--color-accent]"
+        className="font-display text-lg font-black uppercase tracking-widest text-accent"
       >
         Neguentropia
       </NavLink>
@@ -25,8 +25,8 @@ export default function Header() {
                   [
                     'text-sm uppercase tracking-widest transition-colors duration-300',
                     isActive
-                      ? 'text-[--color-accent]'
-                      : 'text-[--color-text-muted] hover:text-[--color-text]',
+                      ? 'text-accent'
+                      : 'text-text-muted hover:text-text',
                   ].join(' ')
                 }
               >

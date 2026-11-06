@@ -1,11 +1,12 @@
 @import "tailwindcss";
 
-:root {
+@theme {
   --color-bg: #03040a;
   --color-bg-elevated: #070914;
   --color-text: #e6e8f2;
   --color-text-muted: #8a8fa8;
   --color-accent: #8fa8ff;
+  --font-display: 'Orbitron', sans-serif;
 }
 
 html {

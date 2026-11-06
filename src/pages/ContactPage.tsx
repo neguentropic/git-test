@@ -18,7 +18,7 @@ export default function ContactPage() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7 }}
-        className="mb-10 font-['Orbitron'] text-3xl font-bold uppercase tracking-widest text-[--color-text]"
+        className="mb-10 font-display text-3xl font-bold uppercase tracking-widest text-text"
       >
         Contact
       </motion.h1>
@@ -27,7 +27,7 @@ export default function ContactPage() {
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          className="text-[--color-accent]"
+          className="text-accent"
         >
           Message envoyé. Merci.
         </motion.p>
@@ -40,39 +40,39 @@ export default function ContactPage() {
           className="flex w-full max-w-lg flex-col gap-6"
           aria-label="Formulaire de contact"
         >
-          <label className="flex flex-col gap-2 text-sm text-[--color-text-muted]">
+          <label className="flex flex-col gap-2 text-sm text-text-muted">
             Nom
             <input
               type="text"
               name="name"
               required
-              className="rounded border border-white/10 bg-[--color-bg-elevated] px-4 py-3 text-[--color-text] outline-none transition-colors focus:border-[--color-accent]/60"
+              className="rounded border border-white/10 bg-bg-elevated px-4 py-3 text-text outline-none transition-colors focus:border-accent/60"
             />
           </label>
 
-          <label className="flex flex-col gap-2 text-sm text-[--color-text-muted]">
+          <label className="flex flex-col gap-2 text-sm text-text-muted">
             E-mail
             <input
               type="email"
               name="email"
               required
-              className="rounded border border-white/10 bg-[--color-bg-elevated] px-4 py-3 text-[--color-text] outline-none transition-colors focus:border-[--color-accent]/60"
+              className="rounded border border-white/10 bg-bg-elevated px-4 py-3 text-text outline-none transition-colors focus:border-accent/60"
             />
           </label>
 
-          <label className="flex flex-col gap-2 text-sm text-[--color-text-muted]">
+          <label className="flex flex-col gap-2 text-sm text-text-muted">
             Message
             <textarea
               name="message"
               rows={5}
               required
-              className="rounded border border-white/10 bg-[--color-bg-elevated] px-4 py-3 text-[--color-text] outline-none transition-colors focus:border-[--color-accent]/60 resize-none"
+              className="rounded border border-white/10 bg-bg-elevated px-4 py-3 text-text outline-none transition-colors focus:border-accent/60 resize-none"
             />
           </label>
 
           <button
             type="submit"
-            className="self-end rounded border border-[--color-accent]/40 px-8 py-3 font-['Orbitron'] text-sm uppercase tracking-widest text-[--color-accent] transition-all duration-300 hover:bg-[--color-accent]/10"
+            className="self-end rounded border border-accent/40 px-8 py-3 font-display text-sm uppercase tracking-widest text-accent transition-all duration-300 hover:bg-accent/10"
           >
             Envoyer
           </button>
