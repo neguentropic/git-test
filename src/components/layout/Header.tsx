@@ -7,15 +7,15 @@ const navLinks = [
 
 export default function Header() {
   return (
-    <header className="relative z-20 flex items-center justify-between px-8 py-6">
+    <header className="relative z-20 flex items-center justify-between gap-4 px-4 py-6 sm:px-8">
       <NavLink
         to="/"
-        className="font-display text-lg font-black uppercase tracking-widest text-accent"
+        className="font-display text-sm font-black uppercase tracking-widest text-accent sm:text-lg"
       >
         Neguentropia
       </NavLink>
       <nav aria-label="Navigation principale">
-        <ul className="flex gap-8">
+        <ul className="flex gap-4 sm:gap-8">
           {navLinks.map(({ to, label }) => (
             <li key={to}>
               <NavLink
@@ -23,7 +23,7 @@ export default function Header() {
                 end
                 className={({ isActive }) =>
                   [
-                    'text-sm uppercase tracking-widest transition-colors duration-300',
+                    'text-xs uppercase tracking-widest transition-colors duration-300 sm:text-sm',
                     isActive
                       ? 'text-accent'
                       : 'text-text-muted hover:text-text',
