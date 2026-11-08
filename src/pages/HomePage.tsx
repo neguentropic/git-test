@@ -31,17 +31,19 @@ export default function HomePage() {
       {/* ── Placeholder sections (content TBD) ───────────────────── */}
       <section
         className="relative min-h-screen px-6 py-24 md:px-12"
-        aria-label="Section à définir"
+        aria-label="Section placeholder A"
       >
-       Moins de désordre, plus de valeur
-      </motion.p>
+        <p className="text-center text-[var(--color-text-muted)] text-sm uppercase tracking-widest">
+          {'Moins de désordre, plus de valeur'}
+        </p>
+      </section>
 
       <section
         className="relative min-h-screen px-6 py-24 md:px-12"
-        aria-label="Section à définir"
+        aria-label="Section placeholder B"
       >
         <p className="text-center text-[var(--color-text-muted)] text-sm uppercase tracking-widest">
-          [Contenu à définir]
+          {'[ Contenu à définir ]'}
         </p>
       </section>
     </>
