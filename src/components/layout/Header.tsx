@@ -1,39 +1,43 @@
 import { NavLink } from 'react-router-dom'
 
-const navLinks = [
-  { to: '/', label: 'Accueil' },
-  { to: '/contact', label: 'Contact' },
-] as const
-
 export default function Header() {
   return (
-    <header className="relative z-20 flex items-center justify-between px-8 py-6">
+    <header className="relative z-20 flex items-center justify-between px-6 py-5 md:px-12">
       <NavLink
         to="/"
-        className="font-['Orbitron'] text-lg font-black uppercase tracking-widest text-[--color-accent]"
+        className="font-['Orbitron'] text-sm font-bold uppercase tracking-[0.2em] text-[var(--color-accent)] transition-opacity hover:opacity-80"
+        aria-label="Neguentropia — retour à l'accueil"
       >
         Neguentropia
       </NavLink>
+
       <nav aria-label="Navigation principale">
-        <ul className="flex gap-8">
-          {navLinks.map(({ to, label }) => (
-            <li key={to}>
-              <NavLink
-                to={to}
-                end
-                className={({ isActive }) =>
-                  [
-                    'text-sm uppercase tracking-widest transition-colors duration-300',
-                    isActive
-                      ? 'text-[--color-accent]'
-                      : 'text-[--color-text-muted] hover:text-[--color-text]',
-                  ].join(' ')
-                }
-              >
-                {label}
-              </NavLink>
-            </li>
-          ))}
+        <ul className="flex gap-8 text-sm uppercase tracking-widest text-[var(--color-text-muted)] list-none m-0 p-0">
+          <li>
+            <NavLink
+              to="/"
+              end
+              className={({ isActive }) =>
+                isActive
+                  ? 'text-[var(--color-text)]'
+                  : 'hover:text-[var(--color-text)] transition-colors'
+              }
+            >
+              Accueil
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/contact"
+              className={({ isActive }) =>
+                isActive
+                  ? 'text-[var(--color-text)]'
+                  : 'hover:text-[var(--color-text)] transition-colors'
+              }
+            >
+              Contact
+            </NavLink>
+          </li>
         </ul>
       </nav>
     </header>

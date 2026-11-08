@@ -9,4 +9,7 @@ export default defineConfig({
       '@': `${import.meta.dirname}/src`,
     },
   },
+  // Allow importing .glsl files as raw strings via ?raw query (built-in Vite).
+  // No extra plugin needed — Vite supports ?raw out of the box.
+  assetsInclude: [],
 })
