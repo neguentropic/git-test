@@ -23,8 +23,7 @@ export default function HomePage() {
         transition={{ delay: 0.6, duration: 1 }}
         className="mb-12 max-w-xl text-[--color-text-muted]"
       >
-        L&apos;ordre émerge du chaos. Découvrez un univers rétro-futuriste où chaque particule
-        raconte une histoire.
+       Moins de désordre, plus de valeur
       </motion.p>
 
       <motion.div

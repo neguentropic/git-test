@@ -12,7 +12,6 @@ export default function Header() {
         to="/"
         className="font-['Orbitron'] text-lg font-black uppercase tracking-widest text-[--color-accent]"
       >
-        Neguentropia
       </NavLink>
       <nav aria-label="Navigation principale">
         <ul className="flex gap-8">
