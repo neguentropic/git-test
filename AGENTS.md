@@ -283,13 +283,16 @@ Durée totale de la séquence jusqu'au mot formé : environ 7 à 9 secondes. Tou
 
 ### Phase 0 : le cercle
 - Un cercle noir qui représente un trou noir parfaitement uni sur un fond presque noir est invisible, et sa rotation ne se voit légèrement. Il doit donc avoir une présence discrète : liseré lumineux très fin et asymétrique, halo léger, et/ou texture à peine perceptible qui rend la rotation lisible.
+- Un cercle noir qui représente un trou noir parfaitement uni sur un fond presque noir est invisible, et sa rotation ne se voit légèrement. Il doit donc avoir une présence discrète : liseré lumineux très fin et asymétrique, halo léger, et/ou texture à peine perceptible qui rend la rotation lisible.
 - Rotation d'environ 10 à 15 degrés par seconde.
 - Respiration : variation d'échelle d'environ ±3 à 4 % sur une période de 4 à 6 secondes (sinusoïde ou `easeInOut`).
+- Le trou noir aspire les particules du système principal (disque de particules sombres).
 - Le trou noir aspire les particules du système principal (disque de particules sombres).
 - Pendant le chargement (scène WebGL et police), afficher le fond et un cercle CSS discret, pour éviter un écran vide.
 - Le chronomètre de `INTRO_HOLD_MS` ne démarre qu'une fois la scène rendue et la police chargée, jamais pendant le chargement.
 
 ### Phase 1 : explosion
+- Direction et vitesse aléatoires par particule, avec une légère turbulence (bruit de type curl) pour un aspect de poussière.
 - Direction et vitesse aléatoires par particule, avec une légère turbulence (bruit de type curl) pour un aspect de poussière.
 - Tailles, luminosités et profondeurs (axe z) variées.
 
