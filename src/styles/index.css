@@ -1,5 +1,6 @@
 @import "tailwindcss";
 
+/* ── Design tokens (§19) ─────────────────────────────────────────── */
 :root {
   --color-bg: #03040a;
   --color-bg-elevated: #070914;
@@ -8,6 +9,7 @@
   --color-accent: #8fa8ff;
 }
 
+/* ── Base ─────────────────────────────────────────────────────────── */
 html {
   background-color: var(--color-bg);
   color: var(--color-text);
@@ -21,7 +23,7 @@ body {
   background-color: var(--color-bg);
 }
 
-/* Radial nebula hint — very subtle */
+/* Nebula hint — very subtle radial gradient (§19: max 8% opacity) */
 body::before {
   content: '';
   position: fixed;
@@ -33,4 +35,52 @@ body::before {
   );
   pointer-events: none;
   z-index: 0;
+}
+
+/* ── Typography (§19) ─────────────────────────────────────────────── */
+h1,
+h2,
+h3 {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text);
+  margin: 0;
+}
+
+/* ── Accessibility: screen-reader only ───────────────────────────── */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* ── Focus visible ───────────────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+/* ── Skip-to-content link ────────────────────────────────────────── */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  z-index: 9999;
+  background: var(--color-bg-elevated);
+  color: var(--color-accent);
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  transition: top 0.15s;
+}
+.skip-link:focus {
+  top: 1rem;
 }

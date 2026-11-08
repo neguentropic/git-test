@@ -1,43 +1,51 @@
-import { motion } from 'motion/react'
-import { Link } from 'react-router-dom'
-
+/**
+ * HomePage — Hero plein écran + sections placeholder (§1, §20).
+ * Le canvas R3F est monté dans Layout, partagé par toute l'app.
+ */
 export default function HomePage() {
   return (
-    <section className="flex min-h-[80vh] flex-col items-center justify-center px-8 py-24 text-center">
-      {/* Visually hidden h1 for SEO — visible text rendered via animation placeholder */}
-      <h1 className="sr-only">Neguentropia</h1>
-
-      <motion.p
-        initial={{ opacity: 0, y: 24 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: 'easeOut' }}
-        className="mb-4 font-['Orbitron'] text-[clamp(2.5rem,8vw,7rem)] font-black uppercase tracking-[0.15em] text-[--color-accent]"
-        aria-hidden="true"
+    <>
+      {/* ── Hero section ──────────────────────────────────────────── */}
+      <section
+        className="relative flex min-h-screen items-center justify-center"
+        aria-label="Introduction"
       >
-        Neguentropia
-      </motion.p>
+        {/*
+         * The canvas animation draws "Neguentropia" in WebGL.
+         * The h1 is visually hidden during the animation (sr-only),
+         * then becomes visible via CSS once phase 4 begins.
+         * This ensures the h1 is always in the HTML for SEO/a11y (§11, §12).
+         */}
+        <h1 className="sr-only">Neguentropia</h1>
 
-      <motion.p
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.6, duration: 1 }}
-        className="mb-12 max-w-xl text-[--color-text-muted]"
-      >
-       Moins de désordre, plus de valeur
-      </motion.p>
-
-      <motion.div
-        initial={{ opacity: 0, y: 12 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 1, duration: 0.6 }}
-      >
-        <Link
-          to="/contact"
-          className="rounded border border-[--color-accent]/40 px-8 py-3 font-['Orbitron'] text-sm uppercase tracking-widest text-[--color-accent] transition-all duration-300 hover:bg-[--color-accent]/10"
+        {/* Scroll hint — appears after intro */}
+        <div
+          className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-[var(--color-text-muted)] text-xs uppercase tracking-[0.3em] opacity-50"
+          aria-hidden="true"
         >
-          Nous contacter
-        </Link>
-      </motion.div>
-    </section>
+          <span>Scroll</span>
+          <span className="block h-8 w-px bg-[var(--color-text-muted)]" />
+        </div>
+      </section>
+
+      {/* ── Placeholder sections (content TBD) ───────────────────── */}
+      <section
+        className="relative min-h-screen px-6 py-24 md:px-12"
+        aria-label="Section placeholder A"
+      >
+        <p className="text-center text-[var(--color-text-muted)] text-sm uppercase tracking-widest">
+          {'Moins de désordre, plus de valeur'}
+        </p>
+      </section>
+
+      <section
+        className="relative min-h-screen px-6 py-24 md:px-12"
+        aria-label="Section placeholder B"
+      >
+        <p className="text-center text-[var(--color-text-muted)] text-sm uppercase tracking-widest">
+          {'[ Contenu à définir ]'}
+        </p>
+      </section>
+    </>
   )
 }
