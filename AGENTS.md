@@ -282,18 +282,19 @@ La page s'ouvre sur cette séquence. Elle est entièrement rendue dans le canvas
 Durée totale de la séquence jusqu'au mot formé : environ 7 à 9 secondes. Toutes les durées, amplitudes et nombres de particules sont des constantes centralisées dans `src/config/intro.ts`, faciles à ajuster.
 
 ### Phase 0 : le cercle
-- Un cercle noir parfaitement uni sur un fond presque noir est invisible, et sa rotation ne se voit pas. Il doit donc avoir une présence discrète : liseré lumineux très fin et asymétrique, halo léger, et/ou texture à peine perceptible qui rend la rotation lisible.
+- Un cercle noir qui représente un trou noir parfaitement uni sur un fond presque noir est invisible, et sa rotation ne se voit légèrement. Il doit donc avoir une présence discrète : liseré lumineux très fin et asymétrique, halo léger, et/ou texture à peine perceptible qui rend la rotation lisible.
 - Rotation d'environ 10 à 15 degrés par seconde.
 - Respiration : variation d'échelle d'environ ±3 à 4 % sur une période de 4 à 6 secondes (sinusoïde ou `easeInOut`).
-- Le cercle est déjà composé des particules du système principal (disque de particules sombres), afin que l'explosion soit une transition continue et non un remplacement d'objet.
+- Le trou noir aspire les particules du système principal (disque de particules sombres).
 - Pendant le chargement (scène WebGL et police), afficher le fond et un cercle CSS discret, pour éviter un écran vide.
 - Le chronomètre de `INTRO_HOLD_MS` ne démarre qu'une fois la scène rendue et la police chargée, jamais pendant le chargement.
 
 ### Phase 1 : explosion
-- Direction et vitesse aléatoires par particule, avec une légère turbulence (bruit de type curl) pour un aspect de poussière et non de feu d'artifice.
+- Direction et vitesse aléatoires par particule, avec une légère turbulence (bruit de type curl) pour un aspect de poussière.
 - Tailles, luminosités et profondeurs (axe z) variées.
 
-### Phase 3 : formation du mot
+### Phase 2 : formation du mot
+- Tranquillement des particules commence a former des lettres. Ces lettres sont aspirer par le centre du trou noir pour former un mot.
 - Le mot affiché est exactement `Neguentropia` (casse du DOM). L'affichage visuel peut être en majuscules via la mise en forme.
 - Les positions cibles sont obtenues en dessinant le texte dans un canvas 2D hors écran (police Orbitron, graisse 800 ou 900), en lisant `getImageData`, puis en échantillonnant les pixels opaques sur une grille régulière (`src/lib/sampleText.ts`).
 - **Attendre le chargement de la police** (`await document.fonts.load('800 100px Orbitron')`) avant l'échantillonnage.
@@ -301,7 +302,7 @@ Durée totale de la séquence jusqu'au mot formé : environ 7 à 9 secondes. Tou
 - Taille du mot adaptative : environ 70 % de la largeur du viewport sur desktop, environ 88 % sur mobile (taille de police calculée avec `measureText`). Recalculer les cibles au redimensionnement (avec debounce).
 - Le mot doit rester lisible : ajuster la densité de points en conséquence dans les limites de la section 7.
 
-### Phase 4 : le mot attire la poussière
+### Phase 3 : le mot attire la poussière
 - Système de particules séparé (« poussière ambiante ») qui apparaît en fondu pendant la phase 3 ou 4.
 - Chaque particule naît dans une large coquille autour du mot, dérive vers lui avec une accélération douce et une légère rotation en spirale, s'estompe à l'approche puis réapparaît en périphérie.
 - Effet subtil : il doit suggérer l'attraction sans masquer le mot ni distraire du contenu.
