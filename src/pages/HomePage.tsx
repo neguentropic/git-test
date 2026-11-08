@@ -33,10 +33,8 @@ export default function HomePage() {
         className="relative min-h-screen px-6 py-24 md:px-12"
         aria-label="Section à définir"
       >
-        <p className="text-center text-[var(--color-text-muted)] text-sm uppercase tracking-widest">
-          [Contenu à définir]
-        </p>
-      </section>
+       Moins de désordre, plus de valeur
+      </motion.p>
 
       <section
         className="relative min-h-screen px-6 py-24 md:px-12"

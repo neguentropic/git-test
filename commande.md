@@ -1,0 +1,2 @@
+Dans /workspace/git-test, fait un pull update du projet github https://github.com/neguentropic/git-test.git. 
+Lis AGENTS.md. Crée une app React/Vite/TS avec une page d’accueil, une page contact et le routing. Ajoute le Dockerfile, nginx.conf et le workflow fournis dans AGENTS.md. Ouvre une PR quand tout passe.

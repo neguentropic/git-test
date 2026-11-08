@@ -8,7 +8,6 @@ export default function Header() {
         className="font-['Orbitron'] text-sm font-bold uppercase tracking-[0.2em] text-[var(--color-accent)] transition-opacity hover:opacity-80"
         aria-label="Neguentropia — retour à l'accueil"
       >
-        Neguentropia
       </NavLink>
 
       <nav aria-label="Navigation principale">
