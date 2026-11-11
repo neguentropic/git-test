@@ -1,0 +1,21 @@
+export const INTRO_HOLD_MS = 1000
+export const INTRO_IMPLOSION_MS = 2500
+export const INTRO_WORD_FORMATION_MS = 3500
+export const INTRO_SLOGAN_DELAY_MS = 600
+export const INTRO_TOTAL_MS =
+  INTRO_HOLD_MS + INTRO_IMPLOSION_MS + INTRO_WORD_FORMATION_MS + INTRO_SLOGAN_DELAY_MS
+
+export const DISC_ROTATION_RAD_PER_SEC = 0.20944 // 12 deg/sec
+export const DISC_BREATHE_AMPLITUDE = 0.035
+export const DISC_BREATHE_PERIOD_S = 5
+
+export const MAIN_COUNT_DESKTOP = 30_000
+export const MAIN_COUNT_MOBILE = 6_000
+export const DUST_COUNT_DESKTOP = 4_000
+export const DUST_COUNT_MOBILE = 800
+
+export const WORD_WIDTH_FRACTION_DESKTOP = 0.7
+export const WORD_WIDTH_FRACTION_MOBILE = 0.88
+
+export const CAMERA_FOV = 75
+export const CAMERA_Z = 5

@@ -282,6 +282,7 @@ La page s'ouvre sur cette séquence. Elle est entièrement rendue dans le canvas
 Durée totale de la séquence jusqu'au mot formé : environ 7 à 9 secondes. Toutes les durées, amplitudes et nombres de particules sont des constantes centralisées dans `src/config/intro.ts`, faciles à ajuster.
 
 ### Phase 0 : le cercle
+- La page est remplie d'étoiles pour donner l'impression de regarder l'espace.
 - Un cercle noir qui représente un trou noir parfaitement uni sur un fond presque noir est invisible, et sa rotation ne se voit légèrement. Il doit donc avoir une présence discrète : liseré lumineux très fin et asymétrique, halo léger, et/ou texture à peine perceptible qui rend la rotation lisible.
 - Un cercle noir qui représente un trou noir parfaitement uni sur un fond presque noir est invisible, et sa rotation ne se voit légèrement. Il doit donc avoir une présence discrète : liseré lumineux très fin et asymétrique, halo léger, et/ou texture à peine perceptible qui rend la rotation lisible.
 - Rotation d'environ 10 à 15 degrés par seconde.
@@ -291,10 +292,9 @@ Durée totale de la séquence jusqu'au mot formé : environ 7 à 9 secondes. Tou
 - Pendant le chargement (scène WebGL et police), afficher le fond et un cercle CSS discret, pour éviter un écran vide.
 - Le chronomètre de `INTRO_HOLD_MS` ne démarre qu'une fois la scène rendue et la police chargée, jamais pendant le chargement.
 
-### Phase 1 : explosion
-- Direction et vitesse aléatoires par particule, avec une légère turbulence (bruit de type curl) pour un aspect de poussière.
-- Direction et vitesse aléatoires par particule, avec une légère turbulence (bruit de type curl) pour un aspect de poussière.
-- Tailles, luminosités et profondeurs (axe z) variées.
+### Phase 1 — Assiparation des étoiles par le trou noir (2.5 secondes)
+Des étoiles du champ principal sont aspirées vers le centre (mix(aDisc, aBurst, easeExpoIn(t))) de facon lente et constante. 
+Tranquillement ces étoiles commence a former le mot Neguentropia devant le trou noir.
 
 ### Phase 2 : formation du mot
 - Tranquillement des particules commence a former des lettres. Ces lettres sont aspirer par le centre du trou noir pour former un mot.
@@ -310,6 +310,10 @@ Durée totale de la séquence jusqu'au mot formé : environ 7 à 9 secondes. Tou
 - Chaque particule naît dans une large coquille autour du mot, dérive vers lui avec une accélération douce et une légère rotation en spirale, s'estompe à l'approche puis réapparaît en périphérie.
 - Effet subtil : il doit suggérer l'attraction sans masquer le mot ni distraire du contenu.
 - Le mot lui-même reste vivant : léger scintillement des points et très faible pulsation de luminosité.
+
+### Phase 4 : Apparatition du slogan
+- Le slogan apparait au dessus du logo Neguetropia.
+- Le bouton nos conatacter apparait sous le logo Neguetropia, vers le bas de la page.
 
 ### Architecture technique
 - Système principal : un seul `THREE.Points` avec des attributs par particule (`aDisc`, `aBurst`, `aWord`, `aSeed`, `aSize`) et un `ShaderMaterial`. Les transitions entre phases sont calculées dans le vertex shader à partir d'uniforms (`uTime`, `uPhase`, `uProgress`). Pas de `setState` par frame.
